@@ -1,16 +1,16 @@
 {
     "buildACG": "uksdevglbssvgal01",
     "buildACGResourceGroup": "uks-dev-glb-ssv-gallery-images-rsg",
-    "buildACGSubId": "5cedd05f-568f-41c0-a781-f95dea37e657",
-    "avdBrokerSubscriptionName": "int-vdi-avd",
-    "avdBrokerSubscriptionId": "717872a8-000f-4990-a35b-0f957a9c7856",
+    "buildACGSubId": "be69381e-8256-4633-ac45-0bd184e19c22",
+    "avdBrokerSubscriptionName": "int-vdi-lab-core-mult-v01a",
+    "avdBrokerSubscriptionId": "be69381e-8256-4633-ac45-0bd184e19c22",
     "avdResourceGroup": "uks-int-vdi-avd-rsg",
     "avdKeyVaultResourceGroup": "uks-int-vdi-avd-keyvault-rsg",
-    "avdKeyVaultName": "uks-int-vdi-kvt-000f-01",
+    "avdKeyVaultName": "uks-int-vdi-kvt-010f-01",
     "WSSAgentFileLocation": "C:\\Binaries\\DWTest-Dev-WinWSSAgentInstaller64-8.1.2.18069.msi",
-    "LAWResourceId": "/subscriptions/b6256d4e-aefc-4216-bcd9-44011c1f6040/resourceGroups/uks-dev-glb-sec-logs-logging-rsg/providers/microsoft.operationalinsights/workspaces/uks-dev-glb-sec-logs-law-01",
-    "haadjDomainToJoin": "IAGLOBAL.lloydstsb.com",
-    "haadjDomainDN": "dc=iaglobal,dc=Lloydstsb,dc=com",
+    "LAWResourceId": "/subscriptions/be69381e-8256-4633-ac45-0bd184e19c22/resourceGroups/uks-dev-glb-sec-logs-logging-rsg/providers/microsoft.operationalinsights/workspaces/uks-dev-glb-sec-logs-law-01",
+    "haadjDomainToJoin": "iamdavidson.net",
+    "haadjDomainDN": "DC=iamdavidson,DC=net",
     "haadjSecretName": "SRVAPPHADJ",
     "haadjJoinUsername": "SRVAPPHADJ"
 }
