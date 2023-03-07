@@ -189,9 +189,10 @@
                     "type": "string",
                     "description": "Azure managed disk type to use for session hosts",
                     "enum": [
-                        "Premium_LRS"
+                        "Premium_LRS",
+                        "StandardSSD_LRS"
                     ],
-                    "default": "Premium_LRS"
+                    "default": "StandardSSD_LRS"
                 },
                 "vmDiskSizeGb": {
                     "type": "integer",
