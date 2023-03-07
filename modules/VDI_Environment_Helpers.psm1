@@ -37,7 +37,8 @@ function Get-MultiEnvNames {
     $hostPoolConfigPath = Join-Path -Path $ParametersPath -ChildPath 'hostpools' -AdditionalChildPath $hostPoolConfigFileName
     $hostPoolConfig = Get-Content -Path $hostPoolConfigPath | ConvertFrom-Json -Depth 100
     $labId = $hostPoolConfig.labId
-    $shortLabId = $labId.TrimStart('v')
+    #$shortLabId = $labId.TrimStart('v')
+    $shortLabId = '50b4'
 
     # Get subcription details for host pool
     try {
