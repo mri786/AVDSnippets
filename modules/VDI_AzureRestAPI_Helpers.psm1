@@ -68,7 +68,7 @@ function Search-AzGraphRestAPI {
         }
 
         $body = @{
-            subscriptions = (Get-AzSubscription).Id
+            subscriptions = @((Get-AzSubscription).Id)
             query         = $Query
             options       = $options
         } | ConvertTo-Json
