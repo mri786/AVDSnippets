@@ -1,0 +1,68 @@
+name: ${{ upper(parameters.env) }} Provision multi-session FSLogix ${{ parameters.businessUnitId }}-${{ parameters.hostPoolId }} ($(Date:yyyy-MM-dd HH-mm) UTC)
+
+pr: none
+trigger: none
+
+parameters:
+  - name: env
+    displayName: Select the environment
+    type: string
+    default: int
+    values:
+      - int
+      - ppd
+      - prd
+
+  - name: businessUnitId
+    displayName: Select the business unit id
+    type: string
+    default: ""
+    values:
+      - 001
+      - 002
+      - 003
+      - 004
+      - 005
+      - 006
+      - 007
+      - 999
+
+  - name: hostPoolId
+    displayName: Select the host pool id
+    type: string
+    default: ""
+    values:
+      - 01
+      - 02
+      - 03
+
+variables:
+  - template: /params/svcConnections.yml
+
+jobs:
+  - deployment: FSLogixDeployment
+    displayName: FSLogix Deployment
+    environment: ${{ parameters.env }}_Release_AVD
+    timeoutInMinutes: 180
+
+    pool:
+      vmImage: ubuntu-latest
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+
+          - task: AzurePowerShell@5
+            displayName: FSLogix Deployment
+            continueOnError: false
+            inputs:
+              azurePowerShellVersion: latestVersion
+              azureSubscription     : $(${{ parameters.env }}_svcConnection)
+              pwsh                  : true
+              scriptPath            : scripts/Mult_DeployFSlogixShares.ps1
+              scriptType            : filePath
+              ScriptArguments       :
+                -p_env ${{ parameters.env }}
+                -p_businessUnitId ${{ parameters.businessUnitId }}
+                -p_hostPoolId ${{ parameters.hostPoolId }}

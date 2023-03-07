@@ -1,0 +1,38 @@
+
+#Requires -PSEdition Core
+#Requires -Version 7.0
+
+param (
+    [Parameter(Mandatory = $true, HelpMessage = '')]
+    [ValidatePattern('^\d{3}$')]
+    [string]$BusinessUnitId = '099',
+    [Parameter(Mandatory = $true, HelpMessage = '')]
+    [ValidatePattern('^\d{2}$')]
+    [string]$HostPoolId = '02',
+    [Parameter(Mandatory = $true, HelpMessage = '')]
+    [ValidateSet('int', 'ppd', 'prd')]
+    [string]$Env = 'int'
+)
+
+$ErrorActionPreference = 'Stop'
+if ((Get-ChildItem -Path $env:BUILD_SOURCESDIRECTORY).Name -contains $env:BUILD_REPOSITORY_NAME) {
+    $repoPath = Join-Path -Path $env:BUILD_SOURCESDIRECTORY -ChildPath $env:BUILD_REPOSITORY_NAME
+} else {
+    $repoPath = $env:BUILD_SOURCESDIRECTORY
+}
+
+$scriptsPath = Join-Path -Path $repoPath -ChildPath 'scripts'
+$bicepPath = Join-Path -Path $repoPath -ChildPath 'bicep'
+$buildPath = Join-Path -Path $repoPath -ChildPath 'build'
+$parametersPath = Join-Path -Path $repoPath -ChildPath 'params'
+$schemasPath = Join-Path -Path $repoPath -ChildPath 'schemas'
+
+$PSDefaultParameterValues = @{
+    '*:EnvShortName'   = $p_env
+    '*:BusinessUnitId' = $p_businessUnitId
+    '*:HostPoolId'     = $p_hostPoolId
+    '*:RepositoryPath' = $repoPath
+    '*:ParametersPath' = $parametersPath
+}
+
+Invoke-Expression $(Join-Path -Path $scriptsPath -ChildPath 'Mult_InitializePreReqs.ps1')

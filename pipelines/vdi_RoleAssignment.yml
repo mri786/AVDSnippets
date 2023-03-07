@@ -1,0 +1,63 @@
+name: ${{ upper(parameters.env) }} Role Assignment $(Date:yyyy-MM-dd HH-mm) UTC
+pr: none
+trigger: none
+
+parameters:
+  - name: env
+    displayName: Please select your environment
+    default: "idv"
+    values:
+      - idv
+      - int
+      - ppd
+      - prd
+
+  - name: azureResource
+    displayName: Enter the name of the Azure Resource to apply role to
+    default: "MMDxxxxxxx, uks-EEE-vdi-avd-apg-pers-MMM-NN"
+
+  - name: aadObjectName
+    displayName: Enter the AAD user/group to apply to the resource
+    default: ""
+
+  - name: azureRole
+    displayName: Enter the name of the azure role
+    default: ""
+    values:
+      - "Desktop Virtualization User"
+
+  - name: roleOperation
+    displayName: Enter the name of the azure role
+    default: ""
+    values:
+      - "Add"
+      - "Remove"
+
+variables:
+  - template: /params/svcConnections.yml
+
+jobs:
+- deployment : AssignRole
+  displayName: Assign ${{ parameters.azureRole}} role
+  environment: ${{ parameters.env }}_Release_AVD
+  pool:
+    vmImage: windows-latest
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - checkout: self
+        - task: AzurePowerShell@5
+          displayName: Run Update-RoleAssignment
+          inputs:
+            azurePowerShellVersion: latestVersion
+            azureSubscription     : $(${{ parameters.env }}_svcConnectionUAA)
+            pwsh                  : false
+            scriptPath            : scripts/RunFunction.ps1
+            scriptType            : filePath
+            ScriptArguments       :
+              -Command            "Update-RoleAssignment
+                -azureResource '${{ parameters.azureResource }}'
+                -aadObjectName '${{ parameters.aadObjectName }}'
+                -azureRole '${{ parameters.azureRole }}'
+                -roleOperation ${{ parameters.roleOperation }}"

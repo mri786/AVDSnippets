@@ -1,0 +1,67 @@
+name: ${{ upper(parameters.env) }} Deploy multi-session AVD Broker Objects ${{ parameters.businessUnitId }}-${{ parameters.hostPoolId }} $(Date:yyyy-MM-dd HH-mm) UTC
+
+pr: none
+trigger: none
+
+parameters:
+  - name: env
+    displayName: Please select your environment
+    type: string
+    default: int
+    values:
+      - int
+      - ppd
+      - prd
+
+  - name: businessUnitId
+    displayName: Select the business unit id
+    type: string
+    default: ""
+    values:
+      - 001
+      - 002
+      - 003
+      - 004
+      - 005
+      - 006
+      - 007
+      - 999
+
+  - name: hostPoolId
+    displayName: Select the host pool id
+    type: string
+    default: ""
+    values:
+      - 01
+      - 02
+      - 03
+
+variables:
+  - template: /params/svcConnections.yml
+
+jobs:
+- deployment : Deploy_Mult_AVD_HostPool_AppGroup_Workspace
+  displayName: Deploy_Mult_AVD_HostPool_AppGroup_Workspace
+  environment: ${{ parameters.env }}_Release_AVD
+
+  pool:
+    vmImage: windows-latest
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - checkout: self
+
+        - task: AzurePowerShell@5
+          displayName: Execute Hostpool/AppGroup/Workspace deployment
+          continueOnError: false
+          inputs:
+            azurePowerShellVersion: latestVersion
+            azureSubscription     : $(${{ parameters.env }}_svcConnection)
+            pwsh                  : true
+            scriptPath            : scripts/Mult_DeployAVD.ps1
+            scriptType            : filePath
+            ScriptArguments       :
+              -p_env ${{ parameters.env }}
+              -p_businessUnitId ${{ parameters.BusinessUnitId }}
+              -p_hostPoolId ${{ parameters.HostPoolId }}

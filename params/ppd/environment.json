@@ -1,0 +1,16 @@
+{
+    "buildACG": "uksppdglbssvgal01",
+    "buildACGResourceGroup": "uks-ppd-glb-ssv-gallery-images-rsg",
+    "buildACGSubId": "",
+    "avdBrokerSubscriptionName": "ppd-vdi-avd",
+    "avdBrokerSubscriptionId": "",
+    "avdResourceGroup": "uks-ppd-vdi-avd-rsg",
+    "avdKeyVaultResourceGroup": "uks-ppd-vdi-avd-keyvault-rsg",
+    "avdKeyVaultName": "uks-ppd-vdi-kvt-aaf7-01",
+    "WSSAgentFileLocation": "C:\\Binaries\\DWPREprod-WinWSSAgentInstaller64-8.1.2.18069.msi",
+    "LAWResourceId": "/subscriptions/e8eebc42-9610-4ea8-be93-100807bea803/resourceGroups/uks-ppd-glb-sec-logs-logging-rsg/providers/Microsoft.OperationalInsights/workspaces/uks-ppd-glb-sec-logs-law-01",
+    "haadjDomainToJoin": "TEST01GLOBAL.lloydstsb.com",
+    "haadjDomainDN": "dc=test01global,dc=Lloydstsb,dc=com",
+    "haadjSecretName": "SRVAPPHADJ",
+    "haadjJoinUsername": "SRVAPPHADJ"
+}

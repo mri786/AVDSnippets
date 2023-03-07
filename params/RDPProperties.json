@@ -1,0 +1,60 @@
+{
+    "MULT-standard":[
+        {
+            "enablecredsspsupport":"i:1",
+            "camerastoredirect":"s:*",
+            "redirectclipboard":"i:0",
+            "redirectprinters":"i:0",
+            "redirectsmartcards":"i:0",
+            "singlemoninwindowedmode":"i:1",
+            "smart sizing":"i:1",
+            "audiomode":"i:0",
+            "audiocapturemode":"i:1",
+            "drivestoredirect":"s:",
+            "videoplaybackmode":"i:1",
+            "devicestoredirect":"s:",
+            "usbdevicestoredirect":"s:",
+            "use multimon":"i:1",
+            "redirectcomports":"i:0",
+            "encode redirected video capture":"i:1",
+            "redirected video capture encoding quality":"i:2",
+            "selectedmonitors":"s:",
+            "maximizetocurrentdisplays":"i:0",
+            "screen mode id":"i:2",
+            "dynamic resolution":"i:1",
+            "desktop size id":"i:1",
+            "desktopheight":"i:600",
+            "desktopwidth":"i:800",
+            "desktopscalefactor":"i:100"
+        }
+    ],
+    "MULT-copypaste":[
+        {
+            "enablecredsspsupport":"i:1",
+            "camerastoredirect":"s:*",
+            "redirectclipboard":"i:1",
+            "redirectprinters":"i:0",
+            "redirectsmartcards":"i:0",
+            "singlemoninwindowedmode":"i:1",
+            "smart sizing":"i:1",
+            "audiomode":"i:0",
+            "audiocapturemode":"i:1",
+            "drivestoredirect":"s:",
+            "videoplaybackmode":"i:1",
+            "devicestoredirect":"s:",
+            "usbdevicestoredirect":"s:",
+            "use multimon":"i:1",
+            "redirectcomports":"i:0",
+            "encode redirected video capture":"i:1",
+            "redirected video capture encoding quality":"i:2",
+            "selectedmonitors":"s:",
+            "maximizetocurrentdisplays":"i:0",
+            "screen mode id":"i:2",
+            "dynamic resolution":"i:1",
+            "desktop size id":"i:1",
+            "desktopheight":"i:600",
+            "desktopwidth":"i:800",
+            "desktopscalefactor":"i:100"
+        }
+    ]
+}

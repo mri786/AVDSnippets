@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schemas/avd_hostpool.json",
+  "businessUnitName": "ReleaseOneDev",
+  "location": "uksouth",
+  "labId": "v01a",
+  "hostpool": {
+    "id": "01",
+    "rdpProperties": "MULT-copypaste",
+    "maxSessionLimit": 15,
+    "prefferedappGroupType": "Desktop",
+    "agentUpdate": {
+      "type": "Scheduled",
+      "useSessionHostLocalTime": false,
+      "maintenanceWindowTimeZone": "GMT Standard Time",
+      "maintenanceWindows": {
+        "hour": 1,
+        "dayOfWeek": "Saturday"
+      }
+    }
+  },
+  "appGroup": {
+    "type": "Desktop"
+  },
+  "sessionHosts": {
+    "haadj": true,
+    "timeZone": "GMT Standard Time",
+    "buildImage": "uks-img-windows-desktop-11-gen2-22h2ent-mult-888",
+    "buildImageVer": "1.37.1677598566",
+    "securityClassification": "Confidential",
+    "vmSku": "standard_D8s_v3",
+    "vmDiskType": "Premium_LRS",
+    "vmDiskSizeGb": 128,
+    "localAdminUsername": "mshadmin"
+  }
+}

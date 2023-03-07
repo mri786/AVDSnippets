@@ -1,0 +1,13 @@
+{
+    "fslogix": {
+        "tempVMName": "MSH100000001",
+        "redirectionShareName": "redirection"
+    },
+    "avdAgentLocation": "https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts/Configuration_03-30-2022.zip",
+    "tags": {
+        "costCentre": "CPT021S1XJ",
+        "resourceOwner": "Whitmore, Phil (Colleague ID 0013425)",
+        "CMDB_AppID": "AL16604",
+        "sessionBroker": "AVD"
+    }
+}

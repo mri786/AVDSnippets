@@ -1,0 +1,80 @@
+name: ${{ upper(parameters.env) }} Decommission multi-session hosts ${{ parameters.businessUnitId }}-${{ parameters.hostPoolId }} New Build ($(Date:yyyy-MM-dd HH-mm) UTC)
+
+pr: none
+trigger: none
+
+parameters:
+  - name: env
+    displayName: Select the environment
+    type: string
+    default: int
+    values:
+      - int
+      - ppd
+      - prd
+
+  - name: businessUnitId
+    displayName: Select the business unit id
+    type: string
+    default: ""
+    values:
+      - 001
+      - 002
+      - 003
+      - 004
+      - 005
+      - 006
+      - 007
+      - 999
+
+  - name: hostPoolId
+    displayName: Select the host pool id
+    type: string
+    default: ""
+    values:
+      - 01
+      - 02
+      - 03
+
+  - name: targetCurrentRotation
+    displayName: Target current rotation of VMs
+    type: boolean
+    default: false
+
+  - name: ignoreUserSessions
+    displayName: Ignore connected user sessions
+    type: boolean
+    default: false
+
+variables:
+  - template: /params/svcConnections.yml
+
+jobs:
+  - deployment: MultisessionHostsDecommission
+    displayName: Multi-session hosts decommission
+    environment: ${{ parameters.env }}_Release_AVD
+    timeoutInMinutes: 180
+
+    pool:
+      vmImage: ubuntu-latest
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+
+          - task: AzurePowerShell@5
+            displayName: Hosts decommission
+            continueOnError: false
+            inputs:
+              azurePowerShellVersion: latestVersion
+              azureSubscription     : $(${{ parameters.env }}_svcConnection)
+              pwsh                  : true
+              scriptPath            : scripts/Mult_DecommissionSessionHosts.ps1
+              scriptType            : filePath
+              ScriptArguments       :
+                -p_env ${{ parameters.env }}
+                -p_businessUnitId ${{ parameters.businessUnitId }}
+                -p_hostPoolId ${{ parameters.hostPoolId }}
+                -p_targetCurrentRotation $${{ parameters.targetCurrentRotation }}
+                -p_ignoreUserSessions $${{ parameters.ignoreUserSessions }}

@@ -1,0 +1,7 @@
+variables:
+  int_svcConnection            : SC-R-VDI-INT-C-01
+  int_svcConnectionUAA         : SC-R-VDI-ALL-UAA-01
+  ppd_svcConnection            : SC-L-VDI-PPD-C-01
+  ppd_svcConnectionUAA         : SC-L-VDI-ALL-UAA-01
+  prd_svcConnection            : SC-P-VDI-PRD-C-01
+  prd_svcConnectionUAA         : SC-P-VDI-ALL-UAA-01
