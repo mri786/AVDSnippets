@@ -22,14 +22,14 @@
     "type": "Desktop"
   },
   "sessionHosts": {
-        "haadj": true,
-        "timeZone": "GMT Standard Time",
-        "buildImage": "uks-img-windows-desktop-11-gen2-21h2ent-mult",
-        "buildImageVer": "1.0.4",
-        "securityClassification": "Confidential",
-        "vmSku": "Standard_B2ms",
-        "vmDiskType": "StandardSSD_LRS",
-        "vmDiskSizeGb": 128,
-        "localAdminUsername": "mshadmin"
-  }
+    "haadj": true,
+    "timeZone": "GMT Standard Time",
+    "buildImage": "uks-img-windows-desktop-11-gen2-22h2ent-mult",
+    "buildImageVer": "1.0.1",
+    "securityClassification": "Confidential",
+    "vmSku": "Standard_B2ms",
+    "vmDiskType": "StandardSSD_LRS",
+    "vmDiskSizeGb": 128,
+    "localAdminUsername": "mshadmin"
+}
 }

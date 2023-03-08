@@ -128,6 +128,13 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-03-01' = {
         }
       ]
     }
+    securityProfile: {
+      uefiSettings: {
+        secureBootEnabled: true
+        vTpmEnabled: true
+      }
+      securityType: 'TrustedLaunch'
+    }  
     diagnosticsProfile: {
       bootDiagnostics: {
         enabled: true
