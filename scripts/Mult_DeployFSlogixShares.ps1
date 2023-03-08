@@ -82,7 +82,7 @@ $redirXML = Get-Content -Path $redirXMLPath -Raw
 $redirTempFilePath = '$env:temp\{0}' -f $redirectionXMLFileName
 $pwshCmd = 'Set-Content -Path {0} -Value ''{1}'' -Force; Get-Content -Path {0} -Raw' -f $redirTempFilePath, $redirXML
 $encodedpwshCmd = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($pwshCmd))
-$setRedirCmd = "powershell.exe -NoProfile -EncodedCommand $encodedpwshCmd"
+$setRedirCmd = "powershell.exe -NoProfile -EncodedCommand $encodedpwshCmd -force"
 
 # Ensure managed identity exists
 $msi_tags = @{
