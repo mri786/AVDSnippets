@@ -47,7 +47,6 @@ $ruleProperties = @(
     (
         $userPermissionGroup,
         "Modify",
-        "ContainerInherit,ObjectInherit",
         "NoPropagateInherit",
         "Allow"
     ),
