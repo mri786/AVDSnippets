@@ -64,7 +64,7 @@ function Get-MultiEnvNames {
     $environmentNames = [PSCustomObject]@{
         hostPoolConfigFileName           = $hostPoolConfigFileName
         hostPoolConfigPath               = $hostPoolConfigPath
-        haadjOUPath                      = 'ou=VDI_HPL_MULT_{0}_{1},ou=AVD' -f $BusinessUnitId, $HostPoolId
+        haadjOUPath                      = 'ou=vdi_hpl_mult_{0}_{1},ou=AVD' -f $BusinessUnitId, $HostPoolId
         hostPoolName                     = '{0}-{1}-vdi-avd-hpl-mult-{2}-{3}' -f $LocationShortName, $EnvShortName, $BusinessUnitId, $HostPoolId
         hostPoolDescription              = '{0}-{1}-vdi-avd-hpl-mult-{2}-{3}' -f $LocationShortName, $EnvShortName, $BusinessUnitId, $HostPoolId
         hostPoolFriendlyName             = '{0}-{1}-vdi-avd-hpl-mult-{2}-{3}' -f $LocationShortName, $EnvShortName, $BusinessUnitId, $HostPoolId
