@@ -5,19 +5,14 @@
     <Exclude Copy="0">AppData\Local\CrashDumps</Exclude>
     <!--Omit if not using Remote Desktop Connection client inside a remote desktop-->
     <Exclude Copy="0">AppData\Local\Microsoft\Terminal Server Client</Exclude>
-    <!--Google Chrome brower Redirections -->
+    <!--Google Chrome brower cache - size can also be managed via policy-->
     <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\Default\Cache</Exclude>
-    <!--Microsoft Edge (Chromium) Redirections -->
+    <!--Microsoft Edge (Chromium) cache - size can also be managed via policy-->
     <Exclude Copy="0">AppData\Local\Microsoft\Edge SxS\User Data\Default\Cache</Exclude>
-    <!--Microsoft Teams Redirections -->
+    <!--Details here https://docs.microsoft.com/en-us/microsoftteams/teams-for-vdi#teams-cached-content-exclusion-list-for-non-persistent-setup-->
     <Exclude Copy="0">AppData\Roaming\Microsoft\Teams\media-stack</Exclude>
+    <!--Details here https://docs.microsoft.com/en-us/microsoftteams/teams-for-vdi#non-persistent-setup-->
     <Exclude Copy="0">AppData\Roaming\Microsoft\Teams\meeting-addin\Cache</Exclude>
-    <Exclude Copy="0">AppData\Local\Microsoft\Teams\current\resources\locales</Exclude>
-    <Exclude Copy="0">AppData\Local\Microsoft\Teams\Current\Locales</Exclude>
-    <Exclude Copy="0">AppData\Roaming\Microsoft\Teams\Service Worker\CacheStorage</Exclude>
-    <Exclude Copy="0">AppData\Roaming\Microsoft\Teams\Application Cache</Exclude>
-    <Exclude Copy="0">AppData\Roaming\Microsoft\Teams\Cache</Exclude>
-    <Exclude Copy="0">AppData\Roaming\Microsoft Teams\Logs</Exclude>
   </Excludes>
   <Includes />
 </FrxProfileFolderRedirection>
