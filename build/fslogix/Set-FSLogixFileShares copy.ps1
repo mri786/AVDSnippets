@@ -52,8 +52,8 @@ $ruleProperties = @(
     ),
     (
         $creatorId,
-        "Modify",
-        "ContainerInherit, ObjectInherit",
+        "Modify, DeleteSubDirectoriesAndFiles, ExecuteFile, ReadData, ReadPermissions, ReadAttributes, ReadExtendedAttributes",
+        "ContainerInherit,ObjectInherit",
         "InheritOnly",
         "Allow"
     )
