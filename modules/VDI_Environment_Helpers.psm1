@@ -37,8 +37,8 @@ function Get-MultiEnvNames {
     $hostPoolConfigPath = Join-Path -Path $ParametersPath -ChildPath 'hostpools' -AdditionalChildPath $hostPoolConfigFileName
     $hostPoolConfig = Get-Content -Path $hostPoolConfigPath | ConvertFrom-Json -Depth 100
     $labId = $hostPoolConfig.labId
-    #$shortLabId = $labId.TrimStart('v')
-    $shortLabId = '50b4'
+    $shortLabId = $labId.TrimStart('v')
+    #$shortLabId = '50b4'
 
     # Get subcription details for host pool
     try {
@@ -90,8 +90,8 @@ function Get-MultiEnvNames {
         locationShortName                = $LocationShortName
         dcrRuleName                      = 'uks-{0}-vdi-avd-dcr-mult' -f $EnvShortName
         saResourceGroupName              = '{0}-{1}-vdi-lab-core-mult-{2}-storage-rsg' -f $LocationShortName, $EnvShortName, $labId
-        fslogixStorageAccount            = '{0}{1}vdimultilb{2}pf{3}' -f $LocationShortName, $EnvShortName, $shortLabId, $BusinessUnitId
-        blobSaName                       = '{0}{1}vdimultilb{2}' -f $LocationShortName, $EnvShortName, $shortLabId
+        fslogixStorageAccount            = '{0}{1}ldmultilb{2}pf{3}' -f $LocationShortName, $EnvShortName, $shortLabId, $BusinessUnitId
+        blobSaName                       = '{0}{1}ldmultilb{2}' -f $LocationShortName, $EnvShortName, $shortLabId
         fslogixProfileShare              = 'profiles-{0}-{1}' -f $BusinessUnitId, $HostPoolId
         fslogixUserGroup                 = 'UG_{0}_AAD_VDI_HPL_MULT_{1}_{2}' -f $msgEnv.ToUpper(), $BusinessUnitId, $HostPoolId
         ntfsScript                       = '{0}-{1}-vdi-avd-hpl-mult-{2}-{3}.ps1' -f $LocationShortName, $EnvShortName, $BusinessUnitId, $HostPoolId
