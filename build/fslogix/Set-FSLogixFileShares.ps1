@@ -6,6 +6,7 @@ $storageAccountRG = '#{variables.storageAccountRG}#'
 $shareName = '#{variables.profileShareName}#'
 $creatorId = 'CREATOR OWNER'
 $authUsersId = 'Authenticated Users'
+$builtinUsers = 'Users'
 $mappedDrive = 'P'
 $clientid = '#{variables.azAccountClientid}#'
 
@@ -77,6 +78,10 @@ Write-Host "====================="
 
 # Removing default authenticated users permission
 $existingAuthUsersRule = ($acl.Access).Where({ $PSItem.IdentityReference -imatch $authUsersId })
+$existingAuthUsersRule.ForEach({ $acl.RemoveAccessRule($PSItem) })
+
+# Removing default built in users permission
+$existingAuthUsersRule = ($acl.Access).Where({ $PSItem.IdentityReference -imatch $builtinUsers })
 $existingAuthUsersRule.ForEach({ $acl.RemoveAccessRule($PSItem) })
 
 # Removing default Creator Owner permission
